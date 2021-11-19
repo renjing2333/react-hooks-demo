@@ -29,18 +29,21 @@
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import React, { useState, useEffect } from 'react';
 function Index() {
-  // useEffect(()=>{
-  //       console.log('useEffect=>老弟，你来了！Index页面')
-  //       return () => {
-  //         console.log('拜拜');
-  //       }
-  // })
+  useEffect(()=>{
+        console.log('useEffect=>老弟，你来了！Index页面')
+        return () => {
+          console.log('Index页面拜拜');
+        }
+  })
   return <h2>JSPang.com</h2>;
 }
 
 function List() {
   useEffect(()=>{
     console.log('useEffect=>老弟，你来了！List页面')
+    return () => {
+      console.log('List页面拜拜');  
+    }
 })
   return <h2>List-Page</h2>;
 }
@@ -50,9 +53,12 @@ function Example() {
   useEffect(() => {
     console.log(`useEffect=>You clicked ${count} times`);
     return () => {
-      console.log('age拜了个拜');
+      console.log('count拜了个拜');
     }
-  }, [age])
+  }, [count])
+//   useEffect(()=>{
+//     console.log(`useEffect=>You clicked ${count} times`)
+// })
   return (
     <div>
       <h2>{count}</h2>
