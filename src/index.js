@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Example from './Example7/Example7';
+import Example from './PracticePromise';
 
 ReactDOM.render(
     <Example />,
