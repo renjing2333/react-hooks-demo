@@ -2,7 +2,6 @@ import { useEffect } from "react";
 
 function PracticeArrowFunction() {
 	useEffect(() => {
-		console.log(666);
 		// var fn = function(a, b) {
 		// 	return a + b;
 		// }
@@ -104,14 +103,63 @@ function PracticeArrowFunction() {
 		// aa();
 		// aa()();
 
-		var num1 = (function(){
-			return function(bb) {
+		var num1 = (function () {
+			return function (bb) {
 				console.log(bb, 'bb');
 			}
 		})();
 		num1('hhh');
 
-		
+		// 找最长公共前缀——字符串: 先将数组第一个字符串赋值给一个变量
+		// 然后和数组里每个字符串相比较
+
+		// function longestCommonPrefix(strArr) {
+		// 	if(strArr.length === 0) {
+		// 		return '';
+		// 	}
+		// 	let res = strArr[0];
+		// 	// 循环数组里的字符串
+		// 	for(let i = 1; i < strArr.length; i++) {
+		// 		// 循环数组字符串的字母
+		// 		let j = 0;
+		// 		for( ; j < strArr[i].length && j < res.length; j++) {
+		// 			if(res[j] !== strArr[i][j]) 
+		// 			break;
+		// 		}
+		// 		res = res.substr(0, j);
+		// 		if(res === '') {
+		// 			return res
+		// 		}
+		// 	}
+		// 	return res;
+		// }
+		// var res = longestCommonPrefix(['flower', 'flat', 'flow']);
+		// console.log(res);
+
+		// 最长字符串匹配前缀
+		function longestCommonPrefix(strArr) {
+			if (strArr.length === 0) {
+				return '';
+			}
+			let res = strArr[0];
+			for (let i = 1; i < strArr.length; i++) {
+				let j = 0;
+				for (; j < strArr[i].length && j < res.length; j++) {
+					if (res[j] !== strArr[i][j]) {
+						break;
+					}
+				}
+				res = res.substr(0, j);
+				if (res === '') {
+					return res;
+				}
+			}
+			return res;
+		}
+		var res = longestCommonPrefix(['flower', 'flat', 'flow']);
+		console.log(res);
+
+
 
 	})
 	return (
